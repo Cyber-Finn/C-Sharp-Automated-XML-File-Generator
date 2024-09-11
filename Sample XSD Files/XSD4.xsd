@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Order" type="OrderType"/>
+
+  <xs:complexType name="OrderType">
+    <xs:sequence>
+      <xs:element name="OrderID" type="xs:integer"/>
+      <xs:element name="OrderDate" type="xs:date"/>
+      <xs:element name="Customer" type="CustomerType"/>
+      <xs:element name="Items" type="ItemsType"/>
+      <xs:element name="TotalAmount" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CustomerType">
+    <xs:sequence>
+      <xs:element name="CustomerID" type="xs:integer"/>
+      <xs:element name="Name" type="xs:string"/>
+      <xs:element name="Email" type="xs:string"/>
+      <xs:element name="Phone" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ItemsType">
+    <xs:sequence>
+      <xs:element name="Item" type="ItemType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ItemType">
+    <xs:sequence>
+      <xs:element name="ItemID" type="xs:integer"/>
+      <xs:element name="ProductName" type="xs:string"/>
+      <xs:element name="Quantity" type="xs:integer"/>
+      <xs:element name="UnitPrice" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
